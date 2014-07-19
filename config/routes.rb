@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
-  resources :registrations
+
+
+  resources :results
+
+  resources :teachers
 
   resources :students
 
-  root 'students#index'
+  root 'home#index'
+
+  devise_for :users
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
+  get "pages/about"
+  get "pages/contact"
+  get "pages/service"
+  get "pages/register"
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
